@@ -152,6 +152,61 @@
             </div>
          </section>
 
+         <!--==================== STUDIO ====================-->
+         <section class="home section" id="studio">
+            <div class="home__rectangle"></div>
+        
+            <div class="home__container container grid studio">
+                <div class="home__content grid">
+                    <div class="home__data grid">
+                        <h4>Nosso Estúdio</h4>
+                        <h1 class="home__name">Produza conteúdos profissionais no nosso estúdio</h1>
+                        
+                        <h2 class="home__profession">Oferecemos um espaço completo para gravação de vídeos, podcasts e fotos. Nosso estúdio conta com equipamentos modernos, acústica profissional e estrutura ideal para elevar a qualidade do seu conteúdo.</h2>
+        
+                        <div class="about__info2" style="margin-top: 2rem;">
+                            <div>
+                                <span class="about__info-title2">Espaço</span>
+                                <span class="about__info-name2" style="margin-top: .5rem;">Ambiente profissional e estruturado</span>
+                            </div>
+                        
+                            <div>
+                                <span class="about__info-title2">Equipamentos</span>
+                                <span class="about__info-name2" style="margin-top: .5rem;">Câmeras, iluminação e microfones de ponta</span>
+                            </div>
+                        </div>
+                        <div class="about__info2" style="justify-self: flex-start; margin-top: 1rem;">
+                           <div>
+                               <span class="about__info-title2">Disponibilidade</span>
+                               <span class="about__info-name2" style="margin-top: .5rem;">Aluguel por hora ou pacotes exclusivos</span>
+                           </div>
+                       </div>
+                    </div>
+        
+                    <a href="#contato" class="home__button button" style="align-items: center; justify-content: center;">
+                        <i class="ri-map-pin-line" style="margin-right: 12px;"></i>Ver Localização
+                    </a>
+                </div>
+        
+                <!-- Mini carrossel -->
+                <div class="home__perfil">
+                    <div class="perfil__carousel">
+                        <button class="carousel__btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                        <div class="carousel__wrapper">
+                            <div class="carousel__slide">
+                                <img src="assets/img/studio-agencia-kavo.jpg" alt="Estúdio profissional" class="img-studio">
+                            </div>
+                            <div class="carousel__slide">
+                                <img src="assets/img/studio-agencia-kavo-2.jpg" alt="Ambiente estruturado para gravação" class="img-studio">
+                            </div>
+                        </div>
+                        <button class="carousel__btn next" onclick="moveSlide(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
          <!--==================== SERVICES ====================-->
          <section class="services section" id="servicos">
             <h2 class="section__title" style="font-size: 1rem; margin-bottom: 1rem;">
@@ -472,7 +527,18 @@
                     sua marca juntos!
                 </h2>
         
-                <a href="#" class="home__button button" style="align-items: center; justify-content: center;"><i class="ri-whatsapp-line" style="margin-right: 8px;"></i>Fale Conosco</a>
+                <a href="#" class="home__button button" style="align-items: center; justify-content: center; margin-bottom: 2rem;"><i class="ri-whatsapp-line" style="margin-right: 8px;"></i>Fale Conosco</a>
+
+                <div style="display: flex; align-items: center; justify-content: center;">
+                  <div>
+                     <i class="ri-map-pin-line" style="margin-right: 12px;"></i>
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: .3rem;">
+                     <p>Rua José Erasmo de Oliveira, 254</p>
+                     <p>CEP: 62590-000</p>
+                     <p>Fortaleza - CE</p>
+                  </div>
+                </div>
             </div>
         </section>
         
@@ -581,7 +647,7 @@
                   </a>
 
                   <a href="https://twitter.com/" target="_blank" class="footer__social-link">
-                     <i class="ri-twitter-x-line"></i>
+                     <i class="ri-map-pin-2-line"></i>
                   </a>
 
                   <a href="https://www.linkedin.com/" target="_blank" class="footer__social-link">
@@ -610,5 +676,84 @@
 
       <!--=============== INDEX JS ===============-->
       <script src="assets/js/index.js"></script>
+
+      <style>
+         .studio {
+            gap: 12rem;
+         }
+         .perfil__carousel {
+            position: relative;
+            width: 400px;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+         }
+         
+         .carousel__wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+         }
+         
+         .carousel__slide {
+            min-width: 100%;
+         }
+         
+         .carousel__slide img {
+            width: 100%;
+            border-radius: 10px;
+            filter: grayscale(1);
+            transition: filter .4s;
+         }
+
+         .carousel__slide img:hover {
+            filter: none;
+         }
+         
+         .carousel__btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+         }
+         
+         .carousel__btn.prev {
+            left: 10px;
+         }
+         
+         .carousel__btn.next {
+            right: 10px;
+         }
+
+         @media screen and (max-width: 1150px) {
+            .studio {
+               gap: 4rem;
+            }
+            .perfil__carousel {
+               width: 300px;
+            }
+         }
+         </style>
+
+      <script>
+         let currentIndex = 0;
+         
+         function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel__slide');
+            const totalSlides = slides.length;
+            currentIndex += direction;
+            if (currentIndex < 0) {
+               currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+               currentIndex = 0;
+            }
+            document.querySelector('.carousel__wrapper').style.transform = `translateX(-${currentIndex * 100}%)`;
+         }
+      </script>
    </body>
 </html>

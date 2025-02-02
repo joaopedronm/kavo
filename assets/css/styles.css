@@ -1224,10 +1224,10 @@ body.dark-theme {
   }
 
   .contact__container {
-    grid-template-columns: repeat(2, max-content);
+    grid-template-columns: repeat(3, max-content);
     justify-content: center;
     align-items: center;
-    column-gap: 25rem;
+    column-gap: 10rem;
     padding-block: 1rem 5rem;
   }
   .contact__container .section__title {
