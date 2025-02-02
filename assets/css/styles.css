@@ -190,6 +190,10 @@ body.dark-theme {
   background-color: var(--container-color);
 }
 
+.dark-theme .intro-logos_logo {
+  filter: none;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1120px;
@@ -647,7 +651,14 @@ body.dark-theme {
 .marquee__logos img {
 	display: block;
 	margin-inline: 2rem;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
+}
+
+.intro-logos_logo {
+  /* filter: drop-shadow(20px 20px); */
+  filter: grayscale(100%) invert(1);
+  /* -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1); */
 }
 
 @keyframes loop {

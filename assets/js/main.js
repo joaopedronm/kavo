@@ -1,3 +1,6 @@
+document.body.classList.add('dark-theme');
+
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -49,6 +52,8 @@ const selectedIcon = localStorage.getItem('selected-icon')
 // Obtém o tema e o ícone atuais
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+
+// document.body.classList.add(darkTheme);
 
 // Valida se o usuário já escolheu um tema antes
 if (selectedTheme) {
